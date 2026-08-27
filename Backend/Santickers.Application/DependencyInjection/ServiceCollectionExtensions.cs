@@ -16,6 +16,7 @@ namespace Santickers.Application.DependencyInjection
 			
 			services.AddAutoMapper(cfg => { }, typeof(CategoryProfile).Assembly);
 			services.AddScoped<ICategoryService, CategoryService>();
+			services.AddScoped<IStickerService, StickerService>();
 
 			return services;
 		}
