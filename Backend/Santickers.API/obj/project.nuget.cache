@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "liy026E0Ffk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\Desktop\\bsm allah\\Santickers\\Backend\\Santickers.API\\Santickers.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.11\\microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512"
+  ],
+  "logs": []
+}

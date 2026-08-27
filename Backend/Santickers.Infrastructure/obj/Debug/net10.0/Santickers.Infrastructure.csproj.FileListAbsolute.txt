@@ -1,0 +1,17 @@
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\bin\Debug\net10.0\Santickers.Infrastructure.deps.json
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\bin\Debug\net10.0\Santickers.Infrastructure.dll
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\bin\Debug\net10.0\Santickers.Infrastructure.pdb
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\bin\Debug\net10.0\Santickers.Application.dll
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\bin\Debug\net10.0\Santickers.Domain.dll
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\bin\Debug\net10.0\Santickers.Application.pdb
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\bin\Debug\net10.0\Santickers.Domain.pdb
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\obj\Debug\net10.0\Santickers.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\obj\Debug\net10.0\Santickers.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\obj\Debug\net10.0\Santickers.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\obj\Debug\net10.0\Santickers.Infrastructure.AssemblyInfo.cs
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\obj\Debug\net10.0\Santickers.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\obj\Debug\net10.0\Santicke.21D98439.Up2Date
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\obj\Debug\net10.0\Santickers.Infrastructure.dll
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\obj\Debug\net10.0\refint\Santickers.Infrastructure.dll
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\obj\Debug\net10.0\Santickers.Infrastructure.pdb
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Infrastructure\obj\Debug\net10.0\ref\Santickers.Infrastructure.dll
