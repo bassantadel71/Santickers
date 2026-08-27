@@ -8,6 +8,7 @@ C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Application\obj\De
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Application\obj\Debug\net10.0\Santickers.Application.AssemblyInfoInputs.cache
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Application\obj\Debug\net10.0\Santickers.Application.AssemblyInfo.cs
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Application\obj\Debug\net10.0\Santickers.Application.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Application\obj\Debug\net10.0\Santickers.Application.sourcelink.json
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Application\obj\Debug\net10.0\Santicke.2DDEC38B.Up2Date
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Application\obj\Debug\net10.0\Santickers.Application.dll
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.Application\obj\Debug\net10.0\refint\Santickers.Application.dll
