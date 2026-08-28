@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Santickers.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+148d3ca009536e60ea19b190d6e039e7f1c91a0f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af60d2097697690e7bfead57f10fd20777268fe4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Santickers.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Santickers.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

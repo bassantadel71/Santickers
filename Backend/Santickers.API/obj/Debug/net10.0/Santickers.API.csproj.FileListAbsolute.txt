@@ -170,5 +170,10 @@ C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net1
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\AutoMapper.dll
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
