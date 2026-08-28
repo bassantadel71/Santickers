@@ -1,0 +1,40 @@
+<footer class="relative mt-24 overflow-hidden bg-navy text-cream">
+  <app-curve className="pointer-events-none absolute -top-6 left-1/2 h-24 w-[140%] -translate-x-1/2 text-blue/40" />
+  <div class="relative mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <span class="font-script text-4xl text-peach">Santickers</span>
+      <p class="mt-3 max-w-sm text-cream/70">
+        Little pieces of personality for your laptop, your bottle, your world. Designed, printed and peeled with love.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-lg text-peach">Explore</h3>
+      <ul class="mt-3 space-y-2 text-cream/75">
+        <li><a routerLink="/stickers" class="transition hover:text-peach">Stickers</a></li>
+        <li><a routerLink="/customize" class="transition hover:text-peach">Customize</a></li>
+        <li><a routerLink="/about" class="transition hover:text-peach">About Us</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-lg text-peach">Say hi</h3>
+      <ul class="mt-3 space-y-2 text-cream/75">
+        <li>
+          <a href="https://instagram.com/santickers" target="_blank" rel="noreferrer"
+             class="inline-flex items-center gap-2 transition hover:text-peach">
+            <lucide-angular [img]="InstagramIcon" class="h-4 w-4" /> &#64;santickers
+          </a>
+        </li>
+        <li>
+          <a href="mailto:santickers@gmail.com" class="inline-flex items-center gap-2 transition hover:text-peach">
+            <lucide-angular [img]="MailIcon" class="h-4 w-4" /> santickers&#64;gmail.com
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-cream/10 px-6 py-6 text-center text-sm text-cream/60">
+    &copy; 2026 Santickers. Made to stick with you.
+  </div>
+</footer>

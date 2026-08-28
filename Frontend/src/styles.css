@@ -1,0 +1,169 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 14px);
+  --radius-3xl: calc(var(--radius) + 24px);
+  --radius-4xl: calc(var(--radius) + 40px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy: var(--navy);
+  --color-blue: var(--blue);
+  --color-peach: var(--peach);
+  --color-beige: var(--beige);
+  --color-cream: var(--cream);
+
+  --font-display: 'Baloo 2', ui-rounded, system-ui, sans-serif;
+  --font-script: 'Pacifico', cursive;
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 18px 40px -18px rgba(10, 26, 64, 0.35);
+  --shadow-sticker: 0 24px 50px -22px rgba(10, 26, 64, 0.5);
+}
+
+:root {
+  --radius: 1rem;
+
+  --navy: oklch(0.253 0.089 269.3);
+  --blue: oklch(0.36 0.104 258.6);
+  --peach: oklch(0.78 0.113 55.5);
+  --beige: oklch(0.891 0.032 82.5);
+  --cream: oklch(0.937 0.033 82.9);
+
+  --background: var(--cream);
+  --foreground: var(--navy);
+  --card: oklch(0.985 0.012 85);
+  --card-foreground: var(--navy);
+  --popover: oklch(0.985 0.012 85);
+  --popover-foreground: var(--navy);
+  --primary: var(--peach);
+  --primary-foreground: var(--navy);
+  --secondary: var(--beige);
+  --secondary-foreground: var(--navy);
+  --muted: var(--beige);
+  --muted-foreground: oklch(0.5 0.05 265);
+  --accent: var(--blue);
+  --accent-foreground: oklch(0.97 0.02 85);
+  --destructive: oklch(0.58 0.2 25);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --border: oklch(0.86 0.035 80);
+  --input: oklch(0.86 0.035 80);
+  --ring: var(--peach);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility font-script {
+  font-family: var(--font-script);
+}
+
+@utility text-brand {
+  font-family: var(--font-script);
+  color: var(--peach);
+  font-weight: 400;
+}
+
+@utility peel-card {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 3.25rem;
+    height: 3.25rem;
+    background: linear-gradient(
+      315deg,
+      var(--beige) 0%,
+      var(--cream) 45%,
+      color-mix(in oklab, var(--navy) 12%, transparent) 100%
+    );
+    border-top-left-radius: 1.75rem;
+    box-shadow: -6px -6px 14px -6px rgba(10, 26, 64, 0.35);
+    transition: all 0.35s ease;
+  }
+  &:hover::after {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
+
+@utility sticker-shadow {
+  filter: drop-shadow(0 16px 18px rgba(10, 26, 64, 0.28));
+}
+
+@utility blob {
+  border-radius: 62% 38% 46% 54% / 55% 48% 52% 45%;
+}
+
+@utility float-slow {
+  animation: santickers-float 7s ease-in-out infinite;
+}
+
+@utility float-fast {
+  animation: santickers-float 4.5s ease-in-out infinite;
+}
+
+@keyframes santickers-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--tilt, 0deg));
+  }
+  50% {
+    transform: translateY(-16px) rotate(calc(var(--tilt, 0deg) * -1));
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
