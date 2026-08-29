@@ -29,5 +29,7 @@ namespace Santickers.Infrastructure.Persistence.Data
 		public DbSet<Category> Categories { get; set; }
 
 		public DbSet<Sticker> Stickers { get; set; }
+
+		public DbSet<Favorite> Favorites { get; set; }
 	}
 }

@@ -43,6 +43,8 @@ public static class ServiceCollectionExtensions
 
 		services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+		services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+
 		services.AddScoped(
 			typeof(IGenericRepository<>),
 			typeof(GenericRepository<>));
