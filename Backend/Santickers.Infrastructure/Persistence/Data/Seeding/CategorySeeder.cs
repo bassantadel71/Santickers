@@ -13,9 +13,6 @@ namespace Santickers.Infrastructure.Persistence.Data.Seeding
 	{
 		public static async Task SeedAsync(ApplicationDbContext context)
 		{
-			if (await context.Categories.AnyAsync())
-				return;
-
 			var categories = new List<Category>
 			{
 				new()
@@ -30,6 +27,11 @@ namespace Santickers.Infrastructure.Persistence.Data.Seeding
 				},
 				new()
 				{
+					Name = "Boys",
+					Description = "Cool and fun stickers for boys"
+				},
+				new()
+				{
 					Name = "Quotes",
 					Description = "Fun, inspiring and relatable quote stickers"
 				},
@@ -37,6 +39,21 @@ namespace Santickers.Infrastructure.Persistence.Data.Seeding
 				{
 					Name = "Marvel",
 					Description = "Marvel heroes and characters stickers"
+				},
+				new()
+				{
+					Name = "Series",
+					Description = "Shows, series and binge-worthy stickers"
+				},
+				new()
+				{
+					Name = "Movies",
+					Description = "Movie and cinema themed stickers"
+				},
+				new()
+				{
+					Name = "Gaming",
+					Description = "Games, controllers and gamer stickers"
 				},
 				new()
 				{
@@ -50,7 +67,18 @@ namespace Santickers.Infrastructure.Persistence.Data.Seeding
 				}
 			};
 
-			await context.Categories.AddRangeAsync(categories);
+			var existingNames = await context.Categories
+				.Select(c => c.Name)
+				.ToListAsync();
+
+			var missing = categories
+				.Where(c => !existingNames.Contains(c.Name))
+				.ToList();
+
+			if (missing.Count == 0)
+				return;
+
+			await context.Categories.AddRangeAsync(missing);
 			await context.SaveChangesAsync();
 		}
 	}

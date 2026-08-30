@@ -26,7 +26,7 @@ namespace Santickers.Application.Services
 
 		public async Task<IEnumerable<StickerDto>> GetAllAsync()
 		{
-			var stickers = await _stickerRepository.GetAllReadOnlyAsync();
+			var stickers = await _stickerRepository.GetAllReadOnlyAsync(x => x.Category);
 
 			return _mapper.Map<IEnumerable<StickerDto>>(stickers);
 		}
@@ -36,7 +36,7 @@ namespace Santickers.Application.Services
 			if (id <= 0)
 				return null;
 
-			var sticker = await _stickerRepository.GetByIdReadOnlyAsync(id);
+			var sticker = await _stickerRepository.GetByIdReadOnlyAsync(id, x => x.Category);
 
 			return sticker is null
 				? null

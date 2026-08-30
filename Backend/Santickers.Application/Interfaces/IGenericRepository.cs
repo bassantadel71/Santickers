@@ -1,6 +1,7 @@
 ﻿using Santickers.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Santickers.Application.Interfaces
@@ -16,7 +17,7 @@ namespace Santickers.Application.Interfaces
 		void Update(T entity);
 
 		void Delete(T entity);
-		Task<IEnumerable<T>> GetAllReadOnlyAsync();
-		Task<T?> GetByIdReadOnlyAsync(int id);
+		Task<IEnumerable<T>> GetAllReadOnlyAsync(params Expression<Func<T, object?>>[] includes);
+		Task<T?> GetByIdReadOnlyAsync(int id, params Expression<Func<T, object?>>[] includes);
 	}
 }

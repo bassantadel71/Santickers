@@ -11,7 +11,8 @@ namespace Santickers.Application.Mapping
 	{
 		public StickerProfile()
 		{
-			CreateMap<Sticker, StickerDto>();
+			CreateMap<Sticker, StickerDto>()
+				.ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
 
 			CreateMap<StickerDto, Sticker>();
 		}

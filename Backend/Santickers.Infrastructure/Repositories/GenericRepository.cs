@@ -4,6 +4,7 @@ using Santickers.Domain.Entities;
 using Santickers.Infrastructure.Persistence.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Santickers.Infrastructure.Repositories
@@ -48,17 +49,21 @@ namespace Santickers.Infrastructure.Repositories
 
 		// Read-only methods
 		// AsNoTrackingAsync
-		public async Task<IEnumerable<T>> GetAllReadOnlyAsync()
+		public async Task<IEnumerable<T>> GetAllReadOnlyAsync(params Expression<Func<T, object?>>[] includes)
 		{
-			return await _dbSet
-				.AsNoTracking()
-				.ToListAsync();
+			IQueryable<T> query = _dbSet.AsNoTracking();
+			foreach (var include in includes)
+				query = query.Include(include);
+
+			return await query.ToListAsync();
 		}
-		public async Task<T?> GetByIdReadOnlyAsync(int id)
+		public async Task<T?> GetByIdReadOnlyAsync(int id, params Expression<Func<T, object?>>[] includes)
 		{
-			return await _dbSet
-				.AsNoTracking()
-				.FirstOrDefaultAsync(x => x.Id == id);
+			IQueryable<T> query = _dbSet.AsNoTracking();
+			foreach (var include in includes)
+				query = query.Include(include);
+
+			return await query.FirstOrDefaultAsync(x => x.Id == id);
 		}
 	}
 }
