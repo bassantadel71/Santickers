@@ -1,8 +1,13 @@
 <div class="flex min-h-dvh flex-col overflow-x-hidden">
-  <app-navbar />
+  @if (isAuthPage()) {
+    <app-auth-navbar />
+  } @else {
+    <app-navbar />
+  }
   <main class="flex-1">
     <router-outlet />
   </main>
-  <app-footer />
+  <app-footer [tightTop]="isAuthPage()" />
 </div>
 <app-cart-sidebar />
+<app-toast />

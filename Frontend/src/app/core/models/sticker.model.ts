@@ -1,16 +1,17 @@
 export interface Sticker {
   id: number;
   name: string;
-  description: string;
+  description: string | null;
   price: number;
-  imageUrl: string;
-  isAvailable: boolean;
+  imageUrl: string | null;
   categoryId: number;
-  category?: Category;
+  categoryName: string;
 }
 export interface Category {
   id: number;
   name: string;
+  description: string | null;
+  imageUrl: string | null;
 }
 export interface ComingSoonItem {
   id: string;

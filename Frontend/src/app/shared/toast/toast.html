@@ -1,0 +1,21 @@
+@if (toastService.toasts().length > 0) {
+  <div
+    class="pointer-events-none fixed bottom-6 left-1/2 z-[100] flex w-full max-w-sm -translate-x-1/2 flex-col items-center gap-2 px-4"
+  >
+    @for (t of toastService.toasts(); track t.id) {
+      <div
+        [class]="
+          t.kind === 'error'
+            ? 'bg-red-500 text-white'
+            : 'bg-navy text-cream'
+        "
+        class="pointer-events-auto flex w-full items-center justify-between gap-3 rounded-2xl px-4 py-3 text-sm font-bold shadow-[var(--shadow-sticker)]"
+      >
+        <span>{{ t.message }}</span>
+        <button type="button" (click)="dismiss(t.id)" class="text-cream/70 transition hover:text-cream" aria-label="Dismiss">
+          <lucide-angular [img]="XIcon" class="h-4 w-4" />
+        </button>
+      </div>
+    }
+  </div>
+}

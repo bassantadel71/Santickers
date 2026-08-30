@@ -1,0 +1,73 @@
+<div
+  class="relative mx-auto flex min-h-svh w-full max-w-6xl flex-col items-center justify-center gap-8 px-4 pb-4 pt-6 sm:gap-10 sm:px-6 sm:pb-6 lg:flex-row lg:items-center lg:justify-center lg:pt-0"
+>
+  <app-auth-illustration
+    class="w-full max-w-xl lg:w-1/2 lg:max-w-none"
+    heading="Welcome Back!"
+    subtext="Log in to access your saved stickers, cart items, and custom designs."
+  />
+
+  <div
+    class="relative z-10 flex h-auto w-full max-w-md shrink-0 flex-col justify-center rounded-[28px] bg-cream p-6 shadow-[var(--shadow-sticker)] sm:p-8"
+  >
+    <div
+      class="absolute bottom-0 right-0 h-11 w-11 rounded-tl-[28px]"
+      style="
+        background: linear-gradient(
+          315deg,
+          var(--beige) 0%,
+          var(--cream) 45%,
+          color-mix(in oklab, var(--navy) 12%, transparent) 100%
+        );
+      "
+    ></div>
+
+    <p class="text-xs font-extrabold uppercase tracking-wide text-peach">Welcome back</p>
+    <h1 class="mt-1 text-3xl text-navy">Log in to Santickers</h1>
+
+    <form class="mt-6 space-y-5">
+      <app-auth-field label="Email" [icon]="MailIcon" type="email" placeholder="you@email.com" />
+
+      <label class="block">
+        <span class="text-sm font-extrabold text-navy">Password</span>
+        <span class="relative mt-1.5 flex items-center">
+          <lucide-angular
+            [img]="LockIcon"
+            class="pointer-events-none absolute left-3 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-navy/50"
+          />
+          <input
+            [type]="showPassword() ? 'text' : 'password'"
+            placeholder="••••••••"
+            class="w-full rounded-full border border-border bg-beige/70 py-3 pl-13 pr-13 text-navy outline-none ring-peach/60 transition focus:bg-cream focus:ring-2"
+          />
+          <button
+            type="button"
+            (click)="togglePassword()"
+            aria-label="Toggle password visibility"
+            class="absolute right-4 top-1/2 -translate-y-1/2 text-navy/50 hover:text-navy"
+          >
+            <lucide-angular [img]="showPassword() ? EyeOffIcon : EyeIcon" class="h-4.5 w-4.5" />
+          </button>
+        </span>
+      </label>
+
+      <div class="text-right">
+        <a routerLink="/forgot-password" class="text-sm font-bold text-blue hover:underline"
+          >Forgot password?</a
+        >
+      </div>
+
+      <button
+        type="submit"
+        class="w-full rounded-full bg-peach py-3.5 font-extrabold text-navy shadow-[0_6px_0_var(--navy)] transition active:translate-y-0.5 active:shadow-[0_2px_0_var(--navy)]"
+      >
+        Log in
+      </button>
+    </form>
+
+    <p class="mt-4 text-center text-navy/70">
+      Don't have an account?
+      <a routerLink="/signup" class="font-extrabold text-blue hover:underline">Sign up</a>
+    </p>
+  </div>
+</div>

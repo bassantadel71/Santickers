@@ -1,0 +1,17 @@
+<div class="relative flex w-full flex-col items-center px-4 pb-2 pt-6 text-center sm:px-6 sm:pt-8">
+  <img
+    src="assets/illustrations/stick-around.png"
+    alt="Santickers — customize your world"
+    class="w-full max-w-xl drop-shadow-2xl"
+  />
+  @if (heading || subtext) {
+    <div class="mt-10 text-center sm:mt-14">
+      <h2 class="font-display text-3xl font-extrabold leading-tight text-navy sm:text-4xl">
+        {{ heading }}
+      </h2>
+      <p class="mx-auto mt-3 max-w-sm font-sans text-base leading-relaxed text-navy/70 sm:text-lg">
+        {{ subtext }}
+      </p>
+    </div>
+  }
+</div>

@@ -1,0 +1,73 @@
+@if (sticker === undefined) {
+  <div class="mx-auto max-w-7xl px-4 py-20 text-center">
+    <p class="text-2xl text-navy">Loading…</p>
+  </div>
+} @else if (sticker === null) {
+  <div class="mx-auto max-w-7xl px-4 py-20 text-center">
+    <p class="text-2xl text-navy">Sticker not found 🫠</p>
+    <a routerLink="/stickers" class="mt-6 inline-block rounded-full bg-navy px-8 py-4 font-extrabold text-cream transition hover:bg-blue">
+      Back to stickers
+    </a>
+  </div>
+} @else {
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+    <a
+      routerLink="/stickers"
+      class="inline-flex items-center gap-2 font-bold text-blue transition hover:gap-3"
+    >
+      <lucide-angular [img]="ArrowLeftIcon" class="h-4 w-4" /> Back to stickers
+    </a>
+
+    <div class="mt-6 grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-14">
+      <div class="relative grid aspect-square place-items-center overflow-hidden rounded-[2.5rem] bg-beige/70 p-10 shadow-[var(--shadow-soft)]">
+        <div class="pointer-events-none absolute -left-16 -top-16 h-64 w-64 blob bg-cream/70"></div>
+        <img
+          [src]="imageUrl()"
+          [alt]="sticker.name"
+          width="768"
+          height="768"
+          class="sticker-shadow relative h-full w-full object-contain transition-transform duration-500 hover:scale-105 hover:-rotate-2"
+        />
+      </div>
+
+      <div class="lg:pt-4">
+        <p class="text-sm font-extrabold uppercase tracking-[0.2em] text-blue/70">{{ sticker.categoryName }}</p>
+        <h1 class="mt-2 text-4xl text-navy sm:text-5xl">{{ sticker.name }}</h1>
+        <p class="mt-4 text-3xl font-extrabold text-navy">{{ money(sticker.price) }}</p>
+
+        <p class="mt-5 text-lg leading-relaxed text-navy/70">{{ sticker.description }}</p>
+
+        <div class="mt-8 flex items-center gap-4">
+          <span class="font-extrabold text-navy/70">Quantity</span>
+          <div class="flex items-center gap-1 rounded-full bg-beige p-1.5">
+            <button type="button" aria-label="Decrease quantity" (click)="decreaseQty()"
+                    class="grid h-10 w-10 place-items-center rounded-full bg-cream text-navy transition hover:bg-peach">
+              <lucide-angular [img]="MinusIcon" class="h-4 w-4" />
+            </button>
+            <span class="w-10 text-center text-lg font-extrabold">{{ qty }}</span>
+            <button type="button" aria-label="Increase quantity" (click)="increaseQty()"
+                    class="grid h-10 w-10 place-items-center rounded-full bg-cream text-navy transition hover:bg-peach">
+              <lucide-angular [img]="PlusIcon" class="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <button type="button" (click)="addToCart()"
+                  class="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-navy px-8 py-4 text-lg font-extrabold text-cream shadow-[var(--shadow-soft)] transition hover:bg-blue active:scale-[0.99]">
+            <lucide-angular [img]="ShoppingBagIcon" class="h-5 w-5" /> Add to Cart
+          </button>
+          <button type="button" [attr.aria-label]="isFavorite() ? 'Remove from favorites' : 'Add to favorites'" (click)="toggleFavorite()" [disabled]="isPending()"
+                  class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-beige text-navy transition hover:bg-peach disabled:pointer-events-none disabled:opacity-60">
+            <lucide-angular [img]="HeartIcon" class="h-6 w-6" [class.fill-peach]="isFavorite()" [class.text-peach]="isFavorite()" />
+          </button>
+        </div>
+
+        <div class="mt-8 flex items-center gap-3 rounded-3xl bg-beige/60 p-4 text-sm font-semibold text-navy/70">
+          <lucide-angular [img]="TruckIcon" class="h-5 w-5 shrink-0 text-blue" />
+          Free shipping on orders over 300 EGP · Ships in 2–4 days
+        </div>
+      </div>
+    </div>
+  </div>
+}

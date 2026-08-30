@@ -56,12 +56,12 @@
           </span>
         }
       </button>
-      <button
-        type="button"
+      <a
+        routerLink="/login"
         class="hidden items-center gap-2 rounded-full bg-navy px-4 py-2 text-sm font-extrabold text-cream transition hover:bg-blue sm:inline-flex"
       >
         <lucide-angular [img]="UserIcon" class="h-4 w-4" /> Login
-      </button>
+      </a>
       <button
         type="button"
         (click)="toggleMenu()"
@@ -87,12 +87,13 @@
             {{ l.label }}
           </a>
         }
-        <button
-          type="button"
+        <a
+          routerLink="/login"
+          (click)="closeMenu()"
           class="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-navy px-4 py-3 font-extrabold text-cream"
         >
           <lucide-angular [img]="UserIcon" class="h-4 w-4" /> Login
-        </button>
+        </a>
       </div>
     </nav>
   }

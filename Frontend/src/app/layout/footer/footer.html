@@ -1,4 +1,4 @@
-<footer class="relative mt-24 overflow-hidden bg-navy text-cream">
+<footer class="relative overflow-hidden bg-navy text-cream" [class.mt-24]="!tightTop" [class.mt-0]="tightTop">
   <app-curve className="pointer-events-none absolute -top-6 left-1/2 h-24 w-[140%] -translate-x-1/2 text-blue/40" />
   <div class="relative mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
     <div>
@@ -11,6 +11,7 @@
     <div>
       <h3 class="text-lg text-peach">Explore</h3>
       <ul class="mt-3 space-y-2 text-cream/75">
+        <li><a routerLink="/" class="transition hover:text-peach">Home</a></li>
         <li><a routerLink="/stickers" class="transition hover:text-peach">Stickers</a></li>
         <li><a routerLink="/customize" class="transition hover:text-peach">Customize</a></li>
         <li><a routerLink="/about" class="transition hover:text-peach">About Us</a></li>

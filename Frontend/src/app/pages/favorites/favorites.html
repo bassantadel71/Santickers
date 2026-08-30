@@ -1,0 +1,26 @@
+<div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6">
+  <div class="pointer-events-none absolute -left-24 top-0 h-72 w-72 blob bg-peach/20"></div>
+  <h1 class="relative text-4xl text-navy sm:text-5xl">Your Favorite Stickers ❤️</h1>
+
+  @if (saved().length === 0) {
+    <div class="relative mt-12 overflow-hidden rounded-[2.5rem] bg-beige/60 px-6 py-20 text-center">
+      <div class="mx-auto grid h-28 w-28 place-items-center rounded-full bg-cream shadow-[var(--shadow-soft)]">
+        <lucide-angular [img]="HeartIcon" class="h-12 w-12 text-peach" />
+      </div>
+      <h2 class="mt-6 text-3xl text-navy">No favorites yet</h2>
+      <p class="mx-auto mt-2 max-w-md font-semibold text-navy/60">
+        Tap the little heart on any sticker and it will wait for you right here.
+      </p>
+      <a routerLink="/stickers"
+         class="mt-8 inline-block rounded-full bg-navy px-8 py-4 font-extrabold text-cream transition hover:bg-blue">
+        Explore the Shop
+      </a>
+    </div>
+  } @else {
+    <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      @for (st of saved(); track st.id) {
+        <app-sticker-card [sticker]="st" />
+      }
+    </div>
+  }
+</div>

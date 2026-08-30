@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, Instagram, Mail } from 'lucide-angular';
 import { Curve } from '../../shared/curve/curve';
@@ -11,6 +11,7 @@ import { Curve } from '../../shared/curve/curve';
   styleUrl: './footer.css',
 })
 export class Footer {
+  @Input() tightTop = false;
   readonly InstagramIcon = Instagram;
   readonly MailIcon = Mail;
 }

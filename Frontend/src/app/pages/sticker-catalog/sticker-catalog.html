@@ -1,0 +1,39 @@
+<div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6">
+  <div class="pointer-events-none absolute -right-24 -top-10 h-72 w-72 blob bg-peach/20"></div>
+
+  <h1 class="relative text-4xl text-navy sm:text-5xl">Find Your Next Sticker ✨</h1>
+  <p class="mt-2 font-semibold text-navy/60">
+    {{ results.length }} design{{ results.length === 1 ? '' : 's' }} ready to peel.
+  </p>
+
+  <div class="relative mt-6 max-w-lg">
+    <lucide-angular [img]="SearchIcon" class="pointer-events-none absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-navy/40" />
+    <input
+      (input)="onSearch($event)"
+      placeholder="Search by name or category…"
+      aria-label="Search stickers"
+      class="w-full rounded-full border-2 border-border bg-card py-3.5 pl-14 pr-5 font-semibold text-navy outline-none transition placeholder:text-navy/40 focus:border-peach"
+    />
+  </div>
+
+  <div class="no-scrollbar -mx-4 mt-6 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
+    @for (c of categories; track c) {
+      <button type="button" (click)="setCat(c)" [class]="chipClass(c)" class="shrink-0 rounded-full px-5 py-2.5 font-extrabold transition">
+        {{ c }}
+      </button>
+    }
+  </div>
+
+  @if (results.length === 0) {
+    <div class="mt-16 rounded-[2rem] bg-beige/60 py-20 text-center">
+      <p class="text-2xl text-navy">Nothing matches that 🫠</p>
+      <p class="mt-2 font-semibold text-navy/60">Try another word or category.</p>
+    </div>
+  } @else {
+    <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      @for (st of results; track st.id) {
+        <app-sticker-card [sticker]="st" />
+      }
+    </div>
+  }
+</div>

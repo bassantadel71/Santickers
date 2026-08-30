@@ -1,0 +1,109 @@
+<div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6">
+  <div class="pointer-events-none absolute -right-32 top-10 h-80 w-80 blob bg-peach/20"></div>
+
+  <h1 class="relative text-4xl text-navy sm:text-5xl">Customize Your Sticker 🎨</h1>
+  <p class="mt-2 max-w-xl font-semibold text-navy/60">
+    Bring your own art. We cut it, laminate it, and send it back ready to peel.
+  </p>
+
+  <div class="mt-10 grid gap-8 lg:grid-cols-[1.05fr_1fr]">
+    <!-- UPLOAD / PREVIEW -->
+    <div>
+      @if (preview) {
+        <div class="relative grid aspect-square place-items-center overflow-hidden rounded-[2.5rem] bg-beige/70 p-10 shadow-[var(--shadow-soft)]">
+          <img [src]="preview" alt="Your custom sticker preview"
+               class="sticker-shadow max-h-full max-w-full rounded-2xl object-contain" />
+          <button type="button" (click)="removePreview()" aria-label="Remove uploaded design"
+                  class="absolute right-5 top-5 grid h-11 w-11 place-items-center rounded-full bg-cream text-navy shadow-[var(--shadow-soft)] transition hover:bg-peach">
+            <lucide-angular [img]="XIcon" class="h-5 w-5" />
+          </button>
+          <span class="absolute bottom-5 left-5 rounded-full bg-navy px-4 py-1.5 text-xs font-extrabold uppercase tracking-wide text-cream">
+            {{ size.label }} · {{ finish.label }}
+          </span>
+        </div>
+      } @else {
+        <div
+          (dragover)="onDragOver($event)"
+          (dragleave)="onDragLeave()"
+          (drop)="onDrop($event)"
+          class="grid aspect-square place-items-center rounded-[2.5rem] border-4 border-dashed p-10 text-center transition"
+          [class.border-peach]="dragging"
+          [class.bg-peach/15]="dragging"
+          [class.border-navy/20]="!dragging"
+          [class.bg-beige/40]="!dragging"
+        >
+          <div>
+            <div class="mx-auto grid h-24 w-24 place-items-center rounded-full bg-cream shadow-[var(--shadow-soft)]">
+              <lucide-angular [img]="ImagePlusIcon" class="h-11 w-11 text-blue" />
+            </div>
+            <h2 class="mt-6 text-2xl text-navy">Drop your design here</h2>
+            <p class="mt-2 font-semibold text-navy/60">PNG, JPG or SVG · up to 10MB</p>
+            <button type="button" (click)="fileInput.click()"
+                    class="mt-6 inline-flex items-center gap-2 rounded-full bg-navy px-7 py-3.5 font-extrabold text-cream transition hover:bg-blue">
+              <lucide-angular [img]="UploadIcon" class="h-4 w-4" /> Upload Design
+            </button>
+          </div>
+        </div>
+      }
+      <input #fileInput type="file" accept="image/*" class="hidden" (change)="onFileChange($event)" />
+    </div>
+
+    <!-- OPTIONS -->
+    <div class="rounded-[2.5rem] bg-card p-6 shadow-[var(--shadow-soft)] ring-1 ring-border/60 sm:p-8">
+      <h3 class="text-xl text-navy">Size</h3>
+      <div class="mt-3 grid grid-cols-3 gap-2.5">
+        @for (s of sizes; track s.id) {
+          <button type="button" (click)="size = s"
+                  class="rounded-2xl px-3 py-4 text-left transition"
+                  [class.text-cream]="size.id === s.id" [class.bg-navy]="size.id === s.id" [class.shadow-[var(--shadow-soft)]]="size.id === s.id"
+                  [class.bg-beige/70]="size.id !== s.id" [class.text-navy]="size.id !== s.id" [class.hover:bg-peach]="size.id !== s.id">
+            <span class="block font-extrabold">{{ s.label }}</span>
+            <span class="block text-xs opacity-70">{{ s.note }}</span>
+          </button>
+        }
+      </div>
+
+      <h3 class="mt-8 text-xl text-navy">Finish</h3>
+      <div class="mt-3 grid gap-2.5 sm:grid-cols-3">
+        @for (f of finishes; track f.id) {
+          <button type="button" (click)="finish = f"
+                  class="rounded-2xl px-3 py-4 text-left transition"
+                  [class.bg-peach]="finish.id === f.id" [class.text-navy]="finish.id === f.id" [class.shadow-[var(--shadow-soft)]]="finish.id === f.id"
+                  [class.bg-beige/70]="finish.id !== f.id" [class.hover:bg-beige]="finish.id !== f.id">
+            <span class="block font-extrabold">{{ f.label }}</span>
+            <span class="block text-xs opacity-70">{{ f.note }}</span>
+          </button>
+        }
+      </div>
+
+      <h3 class="mt-8 text-xl text-navy">Quantity</h3>
+      <div class="mt-3 flex items-center gap-4">
+        <input type="range" min="1" max="50" [value]="qty" (input)="setQtyFromEvent($event)"
+               aria-label="Quantity"
+               class="h-2 w-full cursor-pointer appearance-none rounded-full bg-beige accent-[var(--peach)]" />
+        <span class="w-16 shrink-0 rounded-full bg-beige py-2 text-center font-extrabold text-navy">{{ qty }}</span>
+      </div>
+
+      <h3 class="mt-8 text-xl text-navy">Notes (optional)</h3>
+      <textarea [value]="notes" (input)="setNotesFromEvent($event)" rows="3"
+                placeholder="Anything we should know? Cut style, colors, deadlines…"
+                class="mt-3 w-full resize-none rounded-3xl border-2 border-border bg-cream p-4 font-semibold text-navy outline-none transition placeholder:text-navy/40 focus:border-peach"></textarea>
+
+      <div class="mt-8 rounded-3xl bg-beige/60 p-5">
+        <div class="flex items-center justify-between text-sm font-bold text-navy/70">
+          <span>{{ size.label }} · {{ finish.label }} · ×{{ qty }}</span>
+          <span>{{ money(unit) }} each</span>
+        </div>
+        <div class="mt-2 flex items-center justify-between text-2xl">
+          <span class="font-bold text-navy/70">Total</span>
+          <span class="font-extrabold text-navy">{{ money(total) }}</span>
+        </div>
+        <button type="button" [disabled]="!preview" (click)="addToCart()"
+                class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy py-4 text-lg font-extrabold text-cream transition hover:bg-blue disabled:opacity-40">
+          <lucide-angular [img]="ShoppingBagIcon" class="h-5 w-5" />
+          {{ preview ? 'Add to Cart' : 'Upload a design first' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="relative overflow-hidden px-4 py-14 sm:px-6">
+  <div class="pointer-events-none absolute -left-32 top-20 h-96 w-96 blob bg-beige/80"></div>
+  <div class="pointer-events-none absolute -right-24 top-[45%] h-72 w-72 blob bg-peach/20"></div>
+
+  <section class="relative mx-auto max-w-3xl text-center">
+    <app-curve className="mx-auto h-10 w-52 text-blue" />
+    <h1 class="mt-1 text-5xl leading-tight text-navy sm:text-6xl">
+      We make small things <span class="font-script text-peach">personal</span>
+    </h1>
+    <p class="mt-6 text-lg font-semibold leading-relaxed text-navy/70">
+      Santickers started with one laptop, a stack of blank vinyl and a stubborn feeling that plain
+      grey lids are a waste of a perfectly good canvas.
+    </p>
+  </section>
+
+  <section class="relative mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-3">
+    @for (c of cards; track c.title) {
+      <article [style.rotate]="c.tilt"
+               class="peel-card rounded-[2rem] bg-card p-7 shadow-[var(--shadow-soft)] ring-1 ring-border/60 transition hover:-translate-y-1">
+        <img [src]="c.img" alt="" loading="lazy" width="768" height="768"
+             class="sticker-shadow h-24 w-24 object-contain" />
+        <h2 class="mt-5 text-2xl text-navy">{{ c.title }}</h2>
+        <p class="mt-2 font-semibold text-navy/65">{{ c.text }}</p>
+      </article>
+    }
+  </section>
+
+  <section class="relative mx-auto mt-20 max-w-4xl overflow-hidden rounded-[2.5rem] bg-navy px-8 py-14 text-center text-cream sm:px-14">
+    <app-curve className="pointer-events-none absolute -top-4 left-1/2 h-20 w-[120%] -translate-x-1/2 text-peach/30" />
+    <h2 class="relative text-3xl text-cream sm:text-4xl">
+      Decorate your world, one peel at a time
+    </h2>
+    <p class="relative mx-auto mt-4 max-w-xl text-cream/70">
+      Whether you buy one of ours or bring your own idea, the point is the same: your stuff should
+      look like you.
+    </p>
+    <a routerLink="/customize"
+       class="relative mt-8 inline-block rounded-full bg-peach px-8 py-4 font-extrabold text-navy transition hover:brightness-105">
+      Create Your Own
+    </a>
+  </section>
+</div>
