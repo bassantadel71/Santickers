@@ -33,10 +33,11 @@
 
   <button
     type="button"
+    [disabled]="!sticker.isAvailable"
     (click)="addToCart()"
-    class="mt-4 inline-flex w-[calc(100%-2.5rem)] items-center justify-center gap-2 rounded-full bg-navy px-4 py-2.5 text-sm font-extrabold text-cream transition hover:bg-blue active:scale-[0.98]"
+    class="mt-4 inline-flex w-[calc(100%-2.5rem)] items-center justify-center gap-2 rounded-full bg-navy px-4 py-2.5 text-sm font-extrabold text-cream transition hover:bg-blue active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
   >
     <lucide-angular [img]="ShoppingBagIcon" class="h-4 w-4" />
-    Add to Cart
+    {{ sticker.isAvailable ? 'Add to Cart' : 'Not Available' }}
   </button>
 </div>

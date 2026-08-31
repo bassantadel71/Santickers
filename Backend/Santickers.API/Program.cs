@@ -1,3 +1,4 @@
+using System.IO;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -80,7 +81,12 @@ using (var scope = app.Services.CreateScope())
 	var context = scope.ServiceProvider
 		.GetRequiredService<ApplicationDbContext>();
 
-	await DbInitializer.InitializeAsync(context);
+	var stickersRootPath = Path.Combine(
+		app.Environment.WebRootPath ?? app.Environment.ContentRootPath,
+		"images",
+		"stickers");
+
+	await DbInitializer.InitializeAsync(context, stickersRootPath);
 }
 
 // Swagger

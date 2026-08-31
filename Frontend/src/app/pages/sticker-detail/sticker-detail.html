@@ -40,22 +40,22 @@
         <div class="mt-8 flex items-center gap-4">
           <span class="font-extrabold text-navy/70">Quantity</span>
           <div class="flex items-center gap-1 rounded-full bg-beige p-1.5">
-            <button type="button" aria-label="Decrease quantity" (click)="decreaseQty()"
-                    class="grid h-10 w-10 place-items-center rounded-full bg-cream text-navy transition hover:bg-peach">
+            <button type="button" aria-label="Decrease quantity" (click)="decreaseQty()" [disabled]="!sticker.isAvailable"
+                    class="grid h-10 w-10 place-items-center rounded-full bg-cream text-navy transition hover:bg-peach disabled:pointer-events-none disabled:opacity-40">
               <lucide-angular [img]="MinusIcon" class="h-4 w-4" />
             </button>
             <span class="w-10 text-center text-lg font-extrabold">{{ qty }}</span>
-            <button type="button" aria-label="Increase quantity" (click)="increaseQty()"
-                    class="grid h-10 w-10 place-items-center rounded-full bg-cream text-navy transition hover:bg-peach">
+            <button type="button" aria-label="Increase quantity" (click)="increaseQty()" [disabled]="!sticker.isAvailable"
+                    class="grid h-10 w-10 place-items-center rounded-full bg-cream text-navy transition hover:bg-peach disabled:pointer-events-none disabled:opacity-40">
               <lucide-angular [img]="PlusIcon" class="h-4 w-4" />
             </button>
           </div>
         </div>
 
         <div class="mt-8 flex flex-wrap items-center gap-3">
-          <button type="button" (click)="addToCart()"
-                  class="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-navy px-8 py-4 text-lg font-extrabold text-cream shadow-[var(--shadow-soft)] transition hover:bg-blue active:scale-[0.99]">
-            <lucide-angular [img]="ShoppingBagIcon" class="h-5 w-5" /> Add to Cart
+          <button type="button" (click)="addToCart()" [disabled]="!sticker.isAvailable"
+                  class="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-navy px-8 py-4 text-lg font-extrabold text-cream shadow-[var(--shadow-soft)] transition hover:bg-blue active:scale-[0.99] disabled:pointer-events-none disabled:bg-navy/50">
+            <lucide-angular [img]="ShoppingBagIcon" class="h-5 w-5" /> {{ sticker.isAvailable ? 'Add to Cart' : 'Not Available' }}
           </button>
           <button type="button" [attr.aria-label]="isFavorite() ? 'Remove from favorites' : 'Add to favorites'" (click)="toggleFavorite()" [disabled]="isPending()"
                   class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-beige text-navy transition hover:bg-peach disabled:pointer-events-none disabled:opacity-60">

@@ -72,7 +72,7 @@ export class StickerDetail implements OnInit {
   }
 
   addToCart(): void {
-    if (!this.sticker) return;
+    if (!this.sticker || !this.sticker.isAvailable) return;
     this.cart.addToCart(
       {
         key: String(this.sticker.id),

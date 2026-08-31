@@ -1,10 +1,13 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, Signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, ArrowRight, Sparkles } from 'lucide-angular';
 import { StickerService } from '../../core/services/sticker.service';
 import { Sticker, ComingSoonItem } from '../../core/models/sticker.model';
 import { StickerCard } from '../../shared/sticker-card/sticker-card';
 import { Curve } from '../../shared/curve/curve';
+
+const TOP_CATEGORIES = ['Anime', 'el ragol el 3enab'];
+const MAX_TOP_STICKERS = 6;
 
 const COMING_SOON: ComingSoonItem[] = [
   {
@@ -43,11 +46,27 @@ export class Home implements OnInit {
   private readonly stickerService = inject(StickerService);
 
   readonly comingSoon = COMING_SOON;
-  top: Sticker[] = [];
+  // top: Sticker[] = [];
+  top = signal<Sticker[]>([]);
 
   ngOnInit(): void {
-    this.stickerService.getStickers().subscribe((s) => {
-      this.top = s.slice(0, 3);
+    this.stickerService.getStickers().subscribe({
+      next: (stickers) => {
+        console.log(
+          'All stickers:',
+          stickers.length,
+          stickers.map((s) => s.categoryName),
+        );
+
+        const filteredTop = stickers
+          .filter((s) => TOP_CATEGORIES.includes(s.categoryName))
+          .slice(0, MAX_TOP_STICKERS);
+
+        this.top.set(filteredTop);
+
+        console.log('Filtered top:', filteredTop);
+      },
+      error: (err) => console.error('Failed to load top stickers', err),
     });
   }
 }

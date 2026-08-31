@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Santickers.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+408d661944845e57d952fef7741ba35adc085fc8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1d55d3ffa06d50bfe0529fdcc445a140359b68f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Santickers.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Santickers.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -191,3 +191,34 @@ C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net1
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\series.png
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\skate.png
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\Santickers.API.staticwebassets.runtime.json
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\anime\L.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\anime\Mikasa and Eren.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\anime\Naruto.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\anime\Wings of Freedom.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\el ragol el 3enab\El Ta2der Khasrna Kter.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\el ragol el 3enab\Matd5lnesh fe tfasel ya medhat.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\football\Al-Ahly.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\football\Messi 1.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\football\Real Madrid.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\girls\Blossom 1 .png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\girls\Buttercup 1.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\girls\Buttercup 2.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\girls\Sun Drop.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\marvel\Avengers Logo.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\marvel\Loki.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\marvel\Peter With Tony.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\marvel\The 3 Spider-Man.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\marvel\Tony stark.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\quotes\Gonna Cry.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\quotes\I Write Code.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\quotes\Print Hello world.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\quotes\Saba7 el Zeft.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\quotes\Stay Weird.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\series\Friends.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\series\Harry Potter.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\series\Ross I'm Fine.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\series\Stranger Things.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\valorant\KJ.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\valorant\Omen.png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\valorant\Sage and Sova .png
+C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

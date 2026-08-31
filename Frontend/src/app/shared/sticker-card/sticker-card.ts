@@ -42,6 +42,7 @@ export class StickerCard {
   }
 
   addToCart(): void {
+    if (!this.sticker.isAvailable) return;
     this.cart.addToCart({
       key: String(this.sticker.id),
       name: this.sticker.name,

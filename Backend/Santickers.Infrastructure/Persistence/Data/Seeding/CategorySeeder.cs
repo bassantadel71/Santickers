@@ -1,84 +1,52 @@
-﻿using Santickers.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Santickers.Domain.Entities;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using Santickers.Domain.Entities;
-using Santickers.Infrastructure.Persistence.Data;
-
+using System.IO;
+using System.Linq;
 
 namespace Santickers.Infrastructure.Persistence.Data.Seeding
 {
 	public static class CategorySeeder
 	{
-		public static async Task SeedAsync(ApplicationDbContext context)
+		/// <summary>
+		/// Seeds categories from the physical sticker catalog folders inside
+		/// <paramref name="stickersRootPath"/> (e.g. wwwroot/images/stickers).
+		/// Every subfolder becomes a category. Existing categories are matched
+		/// case-insensitively so no duplicates are created on repeated runs.
+		/// </summary>
+		public static async Task EnsureCategoriesAsync(
+			ApplicationDbContext context,
+			string stickersRootPath)
 		{
-			var categories = new List<Category>
+			var existing = await context.Categories
+				.ToDictionaryAsync(c => c.Name, StringComparer.OrdinalIgnoreCase);
+
+			var dir = new DirectoryInfo(stickersRootPath);
+
+			if (dir.Exists)
 			{
-				new()
+				foreach (var folder in dir.EnumerateDirectories())
 				{
-					Name = "Anime",
-					Description = "Anime and manga inspired stickers"
-				},
-				new()
-				{
-					Name = "Girls",
-					Description = "Cute and aesthetic stickers for girls"
-				},
-				new()
-				{
-					Name = "Boys",
-					Description = "Cool and fun stickers for boys"
-				},
-				new()
-				{
-					Name = "Quotes",
-					Description = "Fun, inspiring and relatable quote stickers"
-				},
-				new()
-				{
-					Name = "Marvel",
-					Description = "Marvel heroes and characters stickers"
-				},
-				new()
-				{
-					Name = "Series",
-					Description = "Shows, series and binge-worthy stickers"
-				},
-				new()
-				{
-					Name = "Movies",
-					Description = "Movie and cinema themed stickers"
-				},
-				new()
-				{
-					Name = "Gaming",
-					Description = "Games, controllers and gamer stickers"
-				},
-				new()
-				{
-					Name = "Football",
-					Description = "Football clubs, players and football themed stickers"
-				},
-				new()
-				{
-					Name = "Custom",
-					Description = "Custom stickers designed just for you"
+					var name = folder.Name.Trim();
+
+					if (string.IsNullOrWhiteSpace(name))
+						continue;
+
+					if (existing.ContainsKey(name))
+						continue;
+
+					var category = new Category
+					{
+						Name = name,
+						Description = $"{name} inspired stickers"
+					};
+
+					context.Categories.Add(category);
+					existing.Add(name, category);
 				}
-			};
+			}
 
-			var existingNames = await context.Categories
-				.Select(c => c.Name)
-				.ToListAsync();
-
-			var missing = categories
-				.Where(c => !existingNames.Contains(c.Name))
-				.ToList();
-
-			if (missing.Count == 0)
-				return;
-
-			await context.Categories.AddRangeAsync(missing);
 			await context.SaveChangesAsync();
 		}
 	}
