@@ -67,27 +67,42 @@ export class Signup {
       })
       .subscribe({
         next: (res) => {
+          console.log('REGISTER RESPONSE:', res);
+
           this.isLoading = false;
 
-          if (!res.succeeded || !res.data) {
+          if (!res.succeeded) {
             this.errorMessage = res.errors?.join(', ') || 'Registration failed.';
             return;
           }
 
-          localStorage.setItem('santickers.authToken', res.data.token);
+          if (res.data) {
+            localStorage.setItem('santickers.authToken', res.data.token);
 
-          localStorage.setItem('santickers.authUser', res.data.email);
+            localStorage.setItem('santickers.authUser', res.data.email);
+          }
 
-          this.router.navigate(['/']);
+          console.log('Registration successful. Navigating...');
+
+          this.router.navigate(['/']).then((success) => {
+            console.log('Navigation result:', success);
+          });
         },
 
         error: (err) => {
+          console.error('REGISTER ERROR:', err);
+
           this.isLoading = false;
 
           this.errorMessage =
             err?.error?.errors?.join(', ') ||
             err?.error?.message ||
             'Registration failed. Please try again.';
+        },
+
+        complete: () => {
+          console.log('Register request completed');
+          this.isLoading = false;
         },
       });
   }
