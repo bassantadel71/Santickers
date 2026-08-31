@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Santickers.Application.DTOs;
@@ -7,6 +8,7 @@ namespace Santickers.API.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize]
 	public class StickersController : ControllerBase
 	{
 		private readonly IStickerService _stickerService;

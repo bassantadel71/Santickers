@@ -18,6 +18,7 @@ namespace Santickers.Application.DependencyInjection
 			services.AddScoped<ICategoryService, CategoryService>();
 			services.AddScoped<IStickerService, StickerService>();
 			services.AddScoped<IFavoriteService, FavoriteService>();
+			services.AddScoped<IOrderService, OrderService>();
 
 			return services;
 		}

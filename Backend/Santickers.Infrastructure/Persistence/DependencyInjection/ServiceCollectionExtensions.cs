@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Santickers.Application.Interfaces;
 using Santickers.Infrastructure.Identity;
 using Santickers.Infrastructure.Identity.Settings;
+using Santickers.Infrastructure.Payments;
+using Santickers.Infrastructure.Payments.Settings;
 using Santickers.Infrastructure.Persistence.Data;
 using Santickers.Infrastructure.Repositories;
 using System;
@@ -25,7 +27,7 @@ public static class ServiceCollectionExtensions
 			options.UseSqlServer(
 				configuration.GetConnectionString("DefaultConnection")));
 
-		services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
+		services.AddIdentityCore<ApplicationUser>(options =>
 		{
 			options.Password.RequireNonAlphanumeric = true;
 			options.Password.RequiredLength = 8;
@@ -33,8 +35,9 @@ public static class ServiceCollectionExtensions
 			options.Password.RequireLowercase = true;
 			options.Password.RequireDigit = true;
 		})
-		.AddEntityFrameworkStores<ApplicationDbContext>()
-		.AddDefaultTokenProviders();
+.AddRoles<IdentityRole<Guid>>()
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
 
 		services.Configure<JwtSettings>(
 			configuration.GetSection("Jwt"));
@@ -48,6 +51,11 @@ public static class ServiceCollectionExtensions
 		services.AddScoped(
 			typeof(IGenericRepository<>),
 			typeof(GenericRepository<>));
+
+		services.Configure<PaymobSettings>(configuration.GetSection("Paymob"));
+		services.AddHttpClient<IPaymobService, PaymobService>();
+
+
 
 		return services;
 	}
