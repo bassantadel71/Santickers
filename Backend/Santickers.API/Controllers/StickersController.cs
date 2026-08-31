@@ -8,7 +8,6 @@ namespace Santickers.API.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	[Authorize]
 	public class StickersController : ControllerBase
 	{
 		private readonly IStickerService _stickerService;

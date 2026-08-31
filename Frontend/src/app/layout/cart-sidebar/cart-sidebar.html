@@ -73,7 +73,7 @@
       <span class="font-bold text-navy/70">Subtotal</span>
       <span class="font-extrabold text-navy">{{ money(cart.subtotal()) }}</span>
     </div>
-    <button type="button" [disabled]="cart.cart().length === 0"
+    <button type="button" (click)="checkout()" [disabled]="cart.cart().length === 0"
             class="mt-4 w-full rounded-full bg-peach py-3.5 font-extrabold text-navy transition hover:brightness-105 disabled:opacity-50">
       Checkout
     </button>

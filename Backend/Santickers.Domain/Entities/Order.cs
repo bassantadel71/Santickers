@@ -30,6 +30,8 @@ namespace Santickers.Domain.Entities
 
 		public OrderStatus Status { get; set; } = OrderStatus.Pending;
 
+		public string PaymentMethod { get; set; } = "paymob";
+
 		public string? PaymobOrderId { get; set; }
 
 		public string? PaymobTransactionId { get; set; }

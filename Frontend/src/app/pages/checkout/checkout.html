@@ -1,0 +1,315 @@
+<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 md:py-12">
+  <h1 class="mb-8 text-3xl text-navy md:mb-12 md:text-4xl">Checkout ✨</h1>
+
+  <div class="grid grid-cols-1 items-start gap-6 lg:grid-cols-12 lg:gap-10">
+    <!-- Left: form OR iframe -->
+    <div class="space-y-6 lg:col-span-7">
+      @if (!safeIframeUrl()) {
+        <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-6">
+          <!-- Contact Information -->
+          <section class="rounded-2xl border border-border/60 bg-cream/80 p-6 backdrop-blur md:p-8">
+            <h2 class="mb-6 flex items-center gap-2 text-2xl text-navy">
+              <lucide-angular [img]="MailIcon" class="h-5 w-5 text-peach"> </lucide-angular>
+
+              Contact Information
+            </h2>
+
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <label class="block">
+                <span class="mb-2 block text-sm font-bold text-navy/70"> Email Address </span>
+
+                <input
+                  formControlName="email"
+                  type="email"
+                  placeholder="hello@example.com"
+                  class="w-full rounded-lg border-none bg-white/90 px-4 py-3 text-navy outline-none ring-peach/60 transition focus:ring-2"
+                />
+
+                @if (fieldInvalid('email')) {
+                  <span class="mt-1 block text-xs font-semibold text-destructive">
+                    Enter a valid email address.
+                  </span>
+                }
+              </label>
+
+              <label class="block">
+                <span class="mb-2 block text-sm font-bold text-navy/70"> Phone Number </span>
+
+                <input
+                  formControlName="phoneNumber"
+                  type="tel"
+                  placeholder="01012345678"
+                  class="w-full rounded-lg border-none bg-white/90 px-4 py-3 text-navy outline-none ring-peach/60 transition focus:ring-2"
+                />
+
+                @if (fieldInvalid('phoneNumber')) {
+                  <span class="mt-1 block text-xs font-semibold text-destructive">
+                    Enter a valid Egyptian mobile number.
+                  </span>
+                }
+              </label>
+            </div>
+          </section>
+
+          <!-- Shipping Address -->
+          <section class="rounded-2xl border border-border/60 bg-cream/80 p-6 backdrop-blur md:p-8">
+            <h2 class="mb-6 flex items-center gap-2 text-2xl text-navy">
+              <lucide-angular [img]="TruckIcon" class="h-5 w-5 text-peach"> </lucide-angular>
+
+              Shipping Address
+            </h2>
+
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <!-- Full Name -->
+              <label class="block md:col-span-2">
+                <span class="mb-2 block text-sm font-bold text-navy/70"> Full Name </span>
+
+                <input
+                  formControlName="fullName"
+                  type="text"
+                  placeholder="John Doe"
+                  class="w-full rounded-lg border-none bg-white/90 px-4 py-3 text-navy outline-none ring-peach/60 transition focus:ring-2"
+                />
+
+                @if (fieldInvalid('fullName')) {
+                  <span class="mt-1 block text-xs font-semibold text-destructive">
+                    Enter your full name.
+                  </span>
+                }
+              </label>
+
+              <!-- Street Address -->
+              <label class="block md:col-span-2">
+                <span class="mb-2 block text-sm font-bold text-navy/70"> Street Address </span>
+
+                <input
+                  formControlName="streetAddress"
+                  type="text"
+                  placeholder="123 Sticker St, Apt 4B"
+                  class="w-full rounded-lg border-none bg-white/90 px-4 py-3 text-navy outline-none ring-peach/60 transition focus:ring-2"
+                />
+
+                @if (fieldInvalid('streetAddress')) {
+                  <span class="mt-1 block text-xs font-semibold text-destructive">
+                    Enter your street address.
+                  </span>
+                }
+              </label>
+
+              <!-- City -->
+              <label class="block">
+                <span class="mb-2 block text-sm font-bold text-navy/70"> City </span>
+
+                <input
+                  formControlName="city"
+                  type="text"
+                  placeholder="Cairo"
+                  class="w-full rounded-lg border-none bg-white/90 px-4 py-3 text-navy outline-none ring-peach/60 transition focus:ring-2"
+                />
+
+                @if (fieldInvalid('city')) {
+                  <span class="mt-1 block text-xs font-semibold text-destructive">
+                    Enter your city.
+                  </span>
+                }
+              </label>
+
+              <!-- Governorate -->
+              <label class="block">
+                <span class="mb-2 block text-sm font-bold text-navy/70"> Governorate </span>
+
+                <select
+                  formControlName="governorate"
+                  class="w-full appearance-none rounded-lg border-none bg-white/90 px-4 py-3 text-navy outline-none ring-peach/60 transition focus:ring-2"
+                >
+                  <option value="" disabled>Select governorate</option>
+
+                  <option value="Cairo">Cairo</option>
+
+                  <option value="Giza">Giza</option>
+
+                  <option value="Alexandria">Alexandria</option>
+                </select>
+
+                @if (fieldInvalid('governorate')) {
+                  <span class="mt-1 block text-xs font-semibold text-destructive">
+                    Select a governorate.
+                  </span>
+                }
+              </label>
+
+              <!-- Postal Code -->
+              <label class="block">
+                <span class="mb-2 block text-sm font-bold text-navy/70"> Postal Code </span>
+
+                <input
+                  formControlName="postalCode"
+                  type="text"
+                  placeholder="11511"
+                  class="w-full rounded-lg border-none bg-white/90 px-4 py-3 text-navy outline-none ring-peach/60 transition focus:ring-2"
+                />
+
+                @if (fieldInvalid('postalCode')) {
+                  <span class="mt-1 block text-xs font-semibold text-destructive">
+                    Enter a valid postal code.
+                  </span>
+                }
+              </label>
+            </div>
+          </section>
+
+          <!-- Payment Method -->
+          <section class="rounded-2xl border border-border/60 bg-cream/80 p-6 backdrop-blur md:p-8">
+            <h2 class="mb-2 flex items-center gap-2 text-2xl text-navy">
+              <lucide-angular [img]="LockIcon" class="h-5 w-5 text-peach"> </lucide-angular>
+
+              Payment Method
+            </h2>
+
+            <p class="mb-4 text-sm text-navy/60">
+              Choose how you'd like to pay when your order is confirmed.
+            </p>
+
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <button
+                type="button"
+                (click)="paymentMethod.set('paymob')"
+                [attr.aria-pressed]="paymentMethod() === 'paymob'"
+                class="rounded-xl border-2 bg-white/90 p-4 text-left transition focus:ring-2 focus:ring-peach/60"
+                [class.border-peach]="paymentMethod() === 'paymob'"
+                [class.ring-2]="paymentMethod() === 'paymob'"
+                [class.ring-peach/60]="paymentMethod() === 'paymob'"
+                [class.border-border]="paymentMethod() !== 'paymob'"
+              >
+                <p class="font-extrabold text-navy">Pay by card (Paymob)</p>
+                <p class="mt-1 text-sm text-navy/60">
+                  Pay securely online with your card via Paymob.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                (click)="paymentMethod.set('cod')"
+                [attr.aria-pressed]="paymentMethod() === 'cod'"
+                class="rounded-xl border-2 bg-white/90 p-4 text-left transition focus:ring-2 focus:ring-peach/60"
+                [class.border-peach]="paymentMethod() === 'cod'"
+                [class.ring-2]="paymentMethod() === 'cod'"
+                [class.ring-peach/60]="paymentMethod() === 'cod'"
+                [class.border-border]="paymentMethod() !== 'cod'"
+              >
+                <p class="font-extrabold text-navy">Cash on Delivery</p>
+                <p class="mt-1 text-sm text-navy/60">
+                  Pay in cash when your stickers arrive at your door.
+                </p>
+              </button>
+            </div>
+          </section>
+
+          <!-- Error -->
+          @if (errorMessage()) {
+            <div
+              class="rounded-xl bg-destructive/10 px-4 py-3 text-sm font-semibold text-destructive"
+            >
+              {{ errorMessage() }}
+            </div>
+          }
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            [disabled]="submitting()"
+            class="flex w-full items-center justify-center gap-2 rounded-full bg-peach py-4 text-lg font-extrabold text-navy shadow-md transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            @if (submitting()) {
+              Placing your order…
+            } @else {
+              {{ paymentMethod() === 'cod' ? 'Place Order (Cash on Delivery)' : 'Continue to Payment' }}
+            }
+          </button>
+
+          <!-- Security message -->
+          <p class="mt-2 flex items-center justify-center gap-1 text-center text-sm text-navy/60">
+            <lucide-angular [img]="LockIcon" class="h-4 w-4"> </lucide-angular>
+
+            @if (paymentMethod() === 'cod') {
+              Pay cash when your order arrives — no prepayment required.
+            } @else {
+              Secure checkout — no card details ever touch our servers.
+            }
+          </p>
+        </form>
+      } @else {
+        <!-- Paymob iframe -->
+        <div class="rounded-2xl border border-border/60 bg-cream/80 p-4 backdrop-blur md:p-6">
+          <h2 class="mb-4 text-2xl text-navy">Complete your payment</h2>
+
+          <iframe
+            [src]="safeIframeUrl()"
+            class="h-[640px] w-full rounded-xl border-0"
+            title="Paymob secure payment"
+          >
+          </iframe>
+        </div>
+      }
+    </div>
+
+    <!-- Right: Order Summary -->
+    <div class="lg:col-span-5">
+      <div class="sticky top-24 rounded-2xl bg-white p-6 shadow-sm md:p-8">
+        <h2 class="mb-6 border-b border-border pb-4 text-2xl text-navy">Order Summary</h2>
+
+        <!-- Cart Items -->
+        <div class="mb-8 space-y-6">
+          @for (item of cart.cart(); track item.key) {
+            <div class="flex items-center gap-4">
+              <div class="grid h-20 w-20 shrink-0 place-items-center rounded-xl bg-beige/70 p-2">
+                <img [src]="item.image" [alt]="item.name" class="h-full w-full object-contain" />
+              </div>
+
+              <div class="flex-grow">
+                <h3 class="font-bold text-navy">
+                  {{ item.name }}
+                </h3>
+
+                <p class="text-sm text-navy/60">Qty: {{ item.qty }}</p>
+              </div>
+
+              <div class="text-lg font-extrabold text-navy">
+                {{ item.price * item.qty }}
+
+                <span class="text-xs font-normal"> EGP </span>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Totals -->
+        <div class="space-y-3 border-t border-border pt-6">
+          <div class="flex justify-between text-navy/70">
+            <span> Subtotal </span>
+
+            <span> {{ cart.subtotal() }} EGP </span>
+          </div>
+
+          <div class="flex justify-between text-navy/70">
+            <span> Shipping </span>
+
+            <span> {{ shippingFee }} EGP </span>
+          </div>
+
+          <div
+            class="mt-2 flex justify-between border-t border-dashed border-border pt-4 text-xl font-extrabold text-navy"
+          >
+            <span> Total </span>
+
+            <span>
+              {{ total }}
+
+              <span class="text-base font-normal"> EGP </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

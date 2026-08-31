@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:7204/api'
+  apiUrl: 'https://fool-ablaze-magnesium.ngrok-free.dev/api'
 };

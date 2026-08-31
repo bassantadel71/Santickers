@@ -25,6 +25,8 @@ namespace Santickers.Infrastructure.Persistence.Configurations
 			builder.Property(o => o.ShippingFee).HasPrecision(18, 2);
 			builder.Property(o => o.Total).HasPrecision(18, 2);
 
+			builder.Property(o => o.PaymentMethod).IsRequired().HasMaxLength(20);
+
 			builder.Property(o => o.PaymobOrderId).HasMaxLength(100);
 			builder.Property(o => o.PaymobTransactionId).HasMaxLength(100);
 

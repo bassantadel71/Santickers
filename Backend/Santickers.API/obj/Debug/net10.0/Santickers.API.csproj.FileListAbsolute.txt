@@ -191,4 +191,3 @@ C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net1
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\series.png
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\wwwroot\images\stickers\skate.png
 C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\bin\Debug\net10.0\Santickers.API.staticwebassets.runtime.json
-C:\Users\user\Desktop\bsm allah\Santickers\Backend\Santickers.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

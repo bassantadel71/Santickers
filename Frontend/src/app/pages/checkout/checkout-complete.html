@@ -1,0 +1,21 @@
+<div class="mx-auto flex min-h-[60vh] max-w-lg flex-col items-center justify-center px-6 text-center">
+  @if (success()) {
+    <lucide-angular [img]="CheckIcon" class="h-16 w-16 text-blue" />
+    @if (paymentMethod() === 'cod') {
+      <h1 class="mt-4 text-3xl text-navy">Order placed!</h1>
+      <p class="mt-2 text-navy/70">
+        Order #{{ orderId() }} is confirmed. Pay with cash when your stickers arrive at your door.
+      </p>
+    } @else {
+      <h1 class="mt-4 text-3xl text-navy">Payment successful!</h1>
+      <p class="mt-2 text-navy/70">Order #{{ orderId() }} is confirmed. We'll get your stickers on their way soon.</p>
+    }
+  } @else {
+    <lucide-angular [img]="XIcon" class="h-16 w-16 text-destructive" />
+    <h1 class="mt-4 text-3xl text-navy">Payment failed</h1>
+    <p class="mt-2 text-navy/70">Something went wrong with your payment. Please try again or use a different card.</p>
+  }
+  <a routerLink="/stickers" class="mt-8 rounded-full bg-peach px-8 py-3 font-extrabold text-navy transition hover:brightness-105">
+    Continue Shopping
+  </a>
+</div>

@@ -24,6 +24,15 @@ export const routes: Routes = [
   { path: 'login', loadComponent: () => import('./pages/login/login').then((m) => m.Login) },
   { path: 'signup', loadComponent: () => import('./pages/signup/signup').then((m) => m.Signup) },
   {
+    path: 'checkout',
+    loadComponent: () => import('./pages/checkout/checkout').then((m) => m.Checkout),
+  },
+  {
+    path: 'checkout/complete',
+    loadComponent: () =>
+      import('./pages/checkout/checkout-complete').then((m) => m.CheckoutComplete),
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFound),
   },

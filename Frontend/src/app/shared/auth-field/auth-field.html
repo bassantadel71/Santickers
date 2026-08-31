@@ -8,6 +8,10 @@
     <input
       [type]="type"
       [placeholder]="placeholder"
+      [value]="value"
+      [disabled]="disabled"
+      (input)="onInput($event)"
+      (blur)="onBlur()"
       class="w-full rounded-full border border-border bg-beige/70 py-3 pl-13 pr-4 text-navy placeholder:text-navy/40 outline-none ring-peach/60 transition focus:bg-cream focus:ring-2"
     />
     @if (toggleable) {

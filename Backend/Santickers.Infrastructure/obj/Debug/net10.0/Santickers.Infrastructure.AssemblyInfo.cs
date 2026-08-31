@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Santickers.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+226d42e1249e665ddf145033e3585c4367cb8a51")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+408d661944845e57d952fef7741ba35adc085fc8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Santickers.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Santickers.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

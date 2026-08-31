@@ -20,6 +20,8 @@ namespace Santickers.Application.DTOs.Order
 
 		public string PostalCode { get; set; } = string.Empty;
 
+		public string PaymentMethod { get; set; } = "paymob";
+
 		public List<CreateOrderItemDto> Items { get; set; } = new List<CreateOrderItemDto>();
 	}
 }

@@ -42,6 +42,9 @@ namespace Santickers.Application.Services
 			if (dto.Items is null || dto.Items.Count == 0)
 				return null;
 
+			var isCashOnDelivery =
+				string.Equals(dto.PaymentMethod, "cod", StringComparison.OrdinalIgnoreCase);
+
 			var order = new Order
 			{
 				UserId = userId,
@@ -53,6 +56,7 @@ namespace Santickers.Application.Services
 				Governorate = dto.Governorate,
 				PostalCode = dto.PostalCode,
 				ShippingFee = FlatShippingFee,
+				PaymentMethod = isCashOnDelivery ? "cod" : "paymob",
 				Status = OrderStatus.Pending
 			};
 
@@ -86,27 +90,37 @@ namespace Santickers.Application.Services
 			await _orderRepository.AddAsync(order);
 			await _unitOfWork.SaveChangesAsync();
 
-			var nameParts = dto.FullName.Split(' ', 2);
+			if (!isCashOnDelivery)
+			{
+				var nameParts = dto.FullName.Split(' ', 2);
 
-			var (paymobOrderId, iframeUrl) = await _paymobService.CreatePaymentAsync(
-				order.Id,
-				order.Total,
-				new PaymobBillingData
+				var (paymobOrderId, iframeUrl) = await _paymobService.CreatePaymentAsync(
+					order.Id,
+					order.Total,
+					new PaymobBillingData
+					{
+						FirstName = nameParts.Length > 0 ? nameParts[0] : dto.FullName,
+						LastName = nameParts.Length > 1 ? nameParts[1] : "N/A",
+						Email = dto.Email,
+						Phone = dto.PhoneNumber
+					});
+
+				order.PaymobOrderId = paymobOrderId;
+				_orderRepository.Update(order);
+				await _unitOfWork.SaveChangesAsync();
+
+				return new CreateOrderResultDto
 				{
-					FirstName = nameParts.Length > 0 ? nameParts[0] : dto.FullName,
-					LastName = nameParts.Length > 1 ? nameParts[1] : "N/A",
-					Email = dto.Email,
-					Phone = dto.PhoneNumber
-				});
+					Order = _mapper.Map<OrderDto>(order),
+					PaymentIframeUrl = iframeUrl
+				};
+			}
 
-			order.PaymobOrderId = paymobOrderId;
-			_orderRepository.Update(order);
-			await _unitOfWork.SaveChangesAsync();
-
+			// Cash on Delivery: order placed, payment collected on delivery.
 			return new CreateOrderResultDto
 			{
 				Order = _mapper.Map<OrderDto>(order),
-				PaymentIframeUrl = iframeUrl
+				PaymentIframeUrl = string.Empty
 			};
 		}
 

@@ -39,6 +39,10 @@ export class CartService {
     this._cart.update((prev) => prev.filter((i) => i.key !== key));
   }
 
+  clear(): void {
+    this._cart.set([]);
+  }
+
   openCart(): void { this._cartOpen.set(true); }
   closeCart(): void { this._cartOpen.set(false); }
 }
