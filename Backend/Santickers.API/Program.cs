@@ -74,8 +74,8 @@ builder.Services.AddCors(options =>
 	options.AddPolicy("AllowFrontend", policy =>
 	{
 		policy.WithOrigins(
-				"https://santickers.vercel.app", // your future Vercel URL
-				"http://localhost:4200"          // keep for local dev
+				"https://santickers-27w1v561m-teamy5.vercel.app",
+				"http://localhost:4200"
 			  )
 			  .AllowAnyHeader()
 			  .AllowAnyMethod()
@@ -112,7 +112,7 @@ if (app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseHttpsRedirection();
-app.UseCors();
+app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 
