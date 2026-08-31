@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Santickers.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1d55d3ffa06d50bfe0529fdcc445a140359b68f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b42a2945fbb8c6c8392993c36f100d2e5fa3067c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Santickers.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Santickers.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -64,10 +64,23 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 // CORS (dev: allow the Angular dev server and any local origin)
+//builder.Services.AddCors(options =>
+//{
+//	options.AddDefaultPolicy(policy =>
+//		policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+//});
 builder.Services.AddCors(options =>
 {
-	options.AddDefaultPolicy(policy =>
-		policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+	options.AddPolicy("AllowFrontend", policy =>
+	{
+		policy.WithOrigins(
+				"https://santickers.vercel.app", // your future Vercel URL
+				"http://localhost:4200"          // keep for local dev
+			  )
+			  .AllowAnyHeader()
+			  .AllowAnyMethod()
+			  .AllowCredentials();
+	});
 });
 
 var app = builder.Build();
