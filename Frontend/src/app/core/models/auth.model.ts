@@ -8,3 +8,15 @@ export interface AuthResponse {
   expiresAt: string;
   email: string;
 }
+export interface RegisterRequest {
+  email: string;
+  password: string;
+  firstName?: string;
+  lastName?: string;
+}
+
+export interface RegisterResult {
+  succeeded: boolean;
+  data?: AuthResponse;
+  errors: string[];
+}

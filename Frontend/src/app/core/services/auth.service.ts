@@ -2,7 +2,13 @@ import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
-import { AuthResponse, LoginRequest } from '../models/auth.model';
+import {
+  AuthResponse,
+  LoginRequest,
+  RegisterRequest,
+  RegisterResult,
+} from '../models/auth.model';
+
 import { environment } from '../../../environments/environment';
 
 const TOKEN_KEY = 'santickers.authToken';
@@ -25,8 +31,15 @@ export class AuthService {
   readonly isAuthenticated = this._isAuthenticated.asReadonly();
 
   login(credentials: LoginRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, credentials).pipe(
-      tap((res) => this.setSession(res))
+    return this.http
+      .post<AuthResponse>(`${this.apiUrl}/login`, credentials)
+      .pipe(tap((res) => this.setSession(res)));
+  }
+
+  register(credentials: RegisterRequest): Observable<RegisterResult> {
+    return this.http.post<RegisterResult>(
+      `${this.apiUrl}/register`,
+      credentials
     );
   }
 
@@ -34,6 +47,7 @@ export class AuthService {
     this._token.set(null);
     this._user.set(null);
     this._isAuthenticated.set(false);
+
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(USER_KEY);
   }
@@ -42,8 +56,12 @@ export class AuthService {
     this._token.set(res.token);
     this._user.set(res.email);
     this._isAuthenticated.set(true);
+
     localStorage.setItem(TOKEN_KEY, res.token);
-    if (res.email) localStorage.setItem(USER_KEY, res.email);
+
+    if (res.email) {
+      localStorage.setItem(USER_KEY, res.email);
+    }
   }
 
   private loadToken(): string | null {
