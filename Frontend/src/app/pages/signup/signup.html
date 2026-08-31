@@ -6,24 +6,26 @@
   >
     <div
       class="absolute bottom-0 left-0 h-11 w-11 rounded-tr-[28px]"
-      style="
-        background: linear-gradient(
-          45deg,
-          var(--beige) 0%,
-          var(--cream) 45%,
-          color-mix(in oklab, var(--navy) 12%, transparent) 100%
-        );
-      "
+      style="background: linear-gradient(45deg, var(--beige) 0%, var(--cream) 45%, color-mix(in oklab, var(--navy) 12%, transparent) 100%);"
     ></div>
 
-    <p class="text-xs font-extrabold uppercase tracking-wide text-peach">Create your account</p>
+    <p class="text-xs font-extrabold uppercase tracking-wide text-peach">
+      Create your account
+    </p>
 
-    <h1 class="mt-1 text-3xl text-navy">Join Santickers</h1>
+    <h1 class="mt-1 text-3xl text-navy">
+      Join Santickers
+    </h1>
 
-    <form class="mt-6 space-y-5" (ngSubmit)="register()">
-      <!-- Full Name -->
+    <form
+      class="mt-6 space-y-5"
+      (ngSubmit)="register()"
+    >
+      <!-- First Name -->
       <label class="block">
-        <span class="text-sm font-extrabold text-navy"> Full name </span>
+        <span class="text-sm font-extrabold text-navy">
+          First name
+        </span>
 
         <span class="relative mt-1.5 flex items-center">
           <lucide-angular
@@ -33,10 +35,33 @@
 
           <input
             type="text"
-            name="fullName"
-            [(ngModel)]="fullName"
-            placeholder="Your full name"
-            autocomplete="name"
+            name="firstName"
+            [(ngModel)]="firstName"
+            placeholder="Your first name"
+            autocomplete="given-name"
+            class="w-full rounded-full border border-border bg-beige/70 py-3 pl-13 pr-4 text-navy outline-none ring-peach/60 transition focus:bg-cream focus:ring-2"
+          />
+        </span>
+      </label>
+
+      <!-- Last Name -->
+      <label class="block">
+        <span class="text-sm font-extrabold text-navy">
+          Last name
+        </span>
+
+        <span class="relative mt-1.5 flex items-center">
+          <lucide-angular
+            [img]="UserIcon"
+            class="pointer-events-none absolute left-3 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-navy/50"
+          />
+
+          <input
+            type="text"
+            name="lastName"
+            [(ngModel)]="lastName"
+            placeholder="Your last name"
+            autocomplete="family-name"
             class="w-full rounded-full border border-border bg-beige/70 py-3 pl-13 pr-4 text-navy outline-none ring-peach/60 transition focus:bg-cream focus:ring-2"
           />
         </span>
@@ -44,7 +69,9 @@
 
       <!-- Email -->
       <label class="block">
-        <span class="text-sm font-extrabold text-navy"> Email </span>
+        <span class="text-sm font-extrabold text-navy">
+          Email
+        </span>
 
         <span class="relative mt-1.5 flex items-center">
           <lucide-angular
@@ -65,7 +92,9 @@
 
       <!-- Password -->
       <label class="block">
-        <span class="text-sm font-extrabold text-navy"> Password </span>
+        <span class="text-sm font-extrabold text-navy">
+          Password
+        </span>
 
         <span class="relative mt-1.5 flex items-center">
           <lucide-angular
@@ -88,44 +117,19 @@
             aria-label="Toggle password visibility"
             class="absolute right-4 top-1/2 -translate-y-1/2 text-navy/50 hover:text-navy"
           >
-            <lucide-angular [img]="showPassword() ? EyeOffIcon : EyeIcon" class="h-4.5 w-4.5" />
-          </button>
-        </span>
-      </label>
-
-      <!-- Confirm Password -->
-      <label class="block">
-        <span class="text-sm font-extrabold text-navy"> Confirm password </span>
-
-        <span class="relative mt-1.5 flex items-center">
-          <lucide-angular
-            [img]="LockIcon"
-            class="pointer-events-none absolute left-3 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-navy/50"
-          />
-
-          <input
-            [type]="showConfirm() ? 'text' : 'password'"
-            name="confirmPassword"
-            [(ngModel)]="confirmPassword"
-            placeholder="••••••••"
-            autocomplete="new-password"
-            class="w-full rounded-full border border-border bg-beige/70 py-3 pl-13 pr-13 text-navy outline-none ring-peach/60 transition focus:bg-cream focus:ring-2"
-          />
-
-          <button
-            type="button"
-            (click)="showConfirm.set(!showConfirm())"
-            aria-label="Toggle password visibility"
-            class="absolute right-4 top-1/2 -translate-y-1/2 text-navy/50 hover:text-navy"
-          >
-            <lucide-angular [img]="showConfirm() ? EyeOffIcon : EyeIcon" class="h-4.5 w-4.5" />
+            <lucide-angular
+              [img]="showPassword() ? EyeOffIcon : EyeIcon"
+              class="h-4.5 w-4.5"
+            />
           </button>
         </span>
       </label>
 
       <!-- Error -->
       @if (errorMessage) {
-        <p class="rounded-2xl bg-red-50 px-4 py-3 text-sm font-bold text-red-600">
+        <p
+          class="rounded-2xl bg-red-50 px-4 py-3 text-sm font-bold text-red-600"
+        >
           {{ errorMessage }}
         </p>
       }
@@ -143,11 +147,18 @@
     <p class="mt-4 text-center text-navy/70">
       Already have an account?
 
-      <a routerLink="/login" class="font-extrabold text-blue hover:underline"> Log in </a>
+      <a
+        routerLink="/login"
+        class="font-extrabold text-blue hover:underline"
+      >
+        Log in
+      </a>
     </p>
   </div>
 
-  <div class="order-1 flex w-full max-w-xl justify-center lg:order-2 lg:w-1/2 lg:max-w-none">
+  <div
+    class="order-1 flex w-full max-w-xl justify-center lg:order-2 lg:w-1/2 lg:max-w-none"
+  >
     <app-auth-illustration
       heading="Ready to Create?"
       subtext="Pick up right where you left off — your custom stickers, cart, and favorites are waiting for you."

@@ -21,15 +21,14 @@ export class Signup {
   readonly EyeOffIcon = EyeOff;
 
   readonly showPassword = signal(false);
-  readonly showConfirm = signal(false);
 
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
-  fullName = '';
+  firstName = '';
+  lastName = '';
   email = '';
   password = '';
-  confirmPassword = '';
 
   errorMessage = '';
   isLoading = false;
@@ -37,8 +36,13 @@ export class Signup {
   register(): void {
     this.errorMessage = '';
 
-    if (!this.fullName.trim()) {
-      this.errorMessage = 'Please enter your full name.';
+    if (!this.firstName.trim()) {
+      this.errorMessage = 'Please enter your first name.';
+      return;
+    }
+
+    if (!this.lastName.trim()) {
+      this.errorMessage = 'Please enter your last name.';
       return;
     }
 
@@ -52,24 +56,14 @@ export class Signup {
       return;
     }
 
-    if (this.password !== this.confirmPassword) {
-      this.errorMessage = 'Passwords do not match.';
-      return;
-    }
-
-    const nameParts = this.fullName.trim().split(/\s+/);
-
-    const firstName = nameParts[0];
-    const lastName = nameParts.slice(1).join(' ') || '';
-
     this.isLoading = true;
 
     this.authService
       .register({
+        firstName: this.firstName.trim(),
+        lastName: this.lastName.trim(),
         email: this.email.trim(),
         password: this.password,
-        firstName,
-        lastName,
       })
       .subscribe({
         next: (res) => {
@@ -80,8 +74,8 @@ export class Signup {
             return;
           }
 
-          // Save the returned authentication session
           localStorage.setItem('santickers.authToken', res.data.token);
+
           localStorage.setItem('santickers.authUser', res.data.email);
 
           this.router.navigate(['/']);
